@@ -60,8 +60,8 @@ public class Hashmap {
             while ((e = t[i]) != null) {
                 t[y] = e.next;
                 int x = e.hash & (newN - 1);
-                e.next = newTab[y];
-                newTab[y] = e;
+                e.next = newTab[x];
+                newTab[x] = e;
             }
             tab = newTab;
         }
@@ -85,6 +85,27 @@ public class Hashmap {
             }
             pred = p;
             p = p.next;
+        }
+    }
+
+    public Pokemon get(String key) {
+        int h = key.hashCode();
+        Entry[] t = tab;
+        int i = h & (t.length - 1);
+        Pokemon found = null;
+        for (Entry e = t[i]; e != null; e = e.next) {
+            if (e.hash == h && key.equals(e.key)) {
+                found = e.value;
+            }
+        }
+        return found;
+    }
+
+    public String[] keys() {
+        String[] ks;
+        Entry[] t = tab;
+        for (int i = 0; i < t.length; i++) {
+
         }
     }
 }
