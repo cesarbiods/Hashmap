@@ -5,6 +5,7 @@ package com.github.cesarbiods;
  */
 public class Hashmap {
     Entry[] tab = new Entry[16];
+    int count = 0;
     static class Entry {
         final String key;
         Pokemon value;
@@ -21,9 +22,9 @@ public class Hashmap {
 
     public boolean contains(String key) {
         int h = key.hashCode();
-        Entry[] j = tab;
-        int i = h & (j.length - 1);
-        for (Entry e = j[i]; e != null; e = e.next) {
+        Entry[] t = tab;
+        int i = h & (t.length - 1);
+        for (Entry e = t[i]; e != null; e = e.next) {
             if (e.hash == h && key.equals(e.key)) {
                 return true;
             }
@@ -31,23 +32,59 @@ public class Hashmap {
         return false;
     }
 
-    public void remove(String key) {
+    public void add(String key, Pokemon poke) {
         int h = key.hashCode();
-        entry[] j = tab;
-        int i = h & (j.length - 1);
-        entry prev = null;
-        node p = j[i];
-        while (p != null) {
-            if (p.hash == h && key.equals(p.key)) {
-                if (prev == null) {
-                    t[i] = p.next;
-                } else {
-                    prev.next = p.next;
-                }
+        Entry[] t = tab;
+        int i = h & (tab.length) - 1;
+
+        for (Entry e = t[i]; e != null; e = e.next) {
+            if (e.hash == h && key.equals(e.key)) {
+                e.value = poke;
                 return;
             }
-            prev = p;
-            p = next; //dunno this
+        }
+
+        Entry p = new Entry(key, poke, t[i], h);
+        t[i] = p;
+        int n = t.length;
+        int c = ++count;
+        if (c/t.length < 0.75) {
+            return;
+        }
+
+        int newN = n << 1;
+        Entry [] newTab = new Entry[newN];
+
+        for (int y = 0; y < n; y++) {
+            Entry e;
+            while ((e = t[i]) != null) {
+                t[y] = e.next;
+                int x = e.hash & (newN - 1);
+                e.next = newTab[y];
+                newTab[y] = e;
+            }
+            tab = newTab;
+        }
+    }
+
+    public void remove(String key) {
+        int h = key.hashCode();
+        Entry[] t = tab;
+        int i = h & (t.length - 1);
+        Entry pred = null;
+        Entry p = t[i];
+        while (p != null) {
+            if (p.hash == h && key.equals(p.key)) {
+                if (pred == null) {
+                    t[i] = p.next;
+                } else {
+                    pred.next = p.next;
+                }
+                --count;
+                return;
+            }
+            pred = p;
+            p = p.next;
         }
     }
 }

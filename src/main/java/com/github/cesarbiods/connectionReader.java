@@ -14,6 +14,17 @@ public class connectionReader {
 
     public static void main(String[] args) {
 
+        Pokemon test = new Pokemon("pikachu", "electric", 34, 42);
+        Hashmap hash = new Hashmap();
+        hash.add("42", test);
+        if (hash.contains("42")) {
+            System.out.println("Success!");
+        }
+        hash.remove("42");
+        if (!hash.contains("42")) {
+            System.out.println("Success!");
+        }
+
         String output  = getUrlContents("https://www.ncdc.noaa.gov/cdo-web/api/v2/locations");
             JsonParser parser = new JsonParser();
             JsonObject json = parser.parse(output).getAsJsonObject();
