@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 run {
-    mainClassName = 'com.github.cesarbiods.connectionReader'
+    mainClassName = 'com.github.cesarbiods.Main'
 }
 
 sourceCompatibility = 1.8

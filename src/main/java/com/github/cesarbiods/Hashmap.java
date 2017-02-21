@@ -102,10 +102,14 @@ public class Hashmap {
     }
 
     public String[] keys() {
-        String[] ks;
         Entry[] t = tab;
+        String[] ks = new String[t.length];
         for (int i = 0; i < t.length; i++) {
-
+            int j = (t[i].key.hashCode()) & (t.length - 1);
+            for (Entry e = t[j]; e != null; e = e.next) {
+                ks[j] = e.key;
+            }
         }
+        return ks;
     }
 }
