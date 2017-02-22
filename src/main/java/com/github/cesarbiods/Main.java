@@ -30,7 +30,7 @@ public class Main {
         }
 
         connectionReader cr = new connectionReader();
-        String output  = cr.getUrlContents("https://www.ncdc.noaa.gov/cdo-web/api/v2/locations");
+        String output  = cr.getUrlContents("https://pokeapi.co/api/v2/pokemon/1/");
         JsonParser parser = new JsonParser();
         JsonObject json = parser.parse(output).getAsJsonObject();
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
