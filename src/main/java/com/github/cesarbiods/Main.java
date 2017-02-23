@@ -11,38 +11,26 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//        Pokemon test = new Pokemon("pikachu", "electric", 34, 42);
-//        Pokemon test1 = new Pokemon("lucario", "steel/fighting", 74, 80);
-//        Hashmap hash = new Hashmap();
-//        hash.add("42", test);
-//        if (hash.contains("42")) {
-//            System.out.println("Success!");
-//        }
-//        System.out.println(hash.get("42").getName());
-//        hash.add("44", test1);
-////        String[] keys = hash.keys().clone();
-////        for (int i = 0; i < keys.length; i++) {
-////            System.out.println(keys[i]);
-////        }
-//        hash.remove("42");
-//        if (!hash.contains("42")) {
-//            System.out.println("Success!");
-//        }
-
+        Hashmap hashmap = new Hashmap();
         connectionReader cr = new connectionReader();
-        String output  = cr.getUrlContents("https://pokeapi.co/api/v2/pokemon/478/");
+        String url = "https://pokeapi.co/api/v2/pokemon/";
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-//        JsonParser parser = new JsonParser();
-//        JsonObject json = parser.parse(output).getAsJsonObject();
-        Pokemon pika = gson.fromJson(output, Pokemon.class);
-        System.out.println("\n\nPokemon Object\n\n" + pika.getName());
-        System.out.println(pika.getWeight());
-        System.out.println(pika.getHeight());
-        List<ComplexType> ctl = pika.getTypes();
-        for (ComplexType ct: ctl) {
-            System.out.println(ct.getType().getName());
+
+        for (int i = 1; i <= 38; i++) {
+            String purl = url.concat(Integer.toString(i));
+            String output  = cr.getUrlContents(purl);
+            Pokemon poke = gson.fromJson(output, Pokemon.class);
+            System.out.println("\n\nPokemon Object\n\n" + "Name: " + poke.getName());
+            System.out.println(poke.getWeight());
+            System.out.println(poke.getHeight());
+            List<ComplexType> ctl = poke.getTypes();
+            for (ComplexType ct: ctl) {
+                System.out.println(ct.getType().getName());
+            }
+            hashmap.add(Integer.toString(i), poke);
+            if (hashmap.contains(Integer.toString(i))) {
+                System.out.println("Added!");
+            }
         }
-//        String prettyOutput = gson.toJson(json);
-//        System.out.println(prettyOutput);
     }
 }

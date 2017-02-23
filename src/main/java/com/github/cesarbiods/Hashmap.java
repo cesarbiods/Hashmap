@@ -57,11 +57,12 @@ public class Hashmap {
 
         for (int y = 0; y < n; y++) {
             Entry e;
-            while ((e = t[i]) != null) {
+            while ((e = t[y]) != null) {
                 t[y] = e.next;
                 int x = e.hash & (newN - 1);
                 e.next = newTab[x];
                 newTab[x] = e;
+                //System.out.println("Index: " + y);
             }
             tab = newTab;
         }
