@@ -5,18 +5,21 @@ package com.github.cesarbiods;
  */
 public class Type {
     private String url;
-    private String name;
-
-    public String getName() {
-        return name;
+    public enum name {
+        NORMAL, FIRE, ROCK, GROUND, GRASS, BUG, POISON, FIGHTING,
+        DRAGON, DARK, GHOST, STEEL, ELECTRIC, FAIRY, PSYCHIC,
+        FLYING, ICE, WATER;
+        private int value;
+        public int getValue() {
+            return value;
+        }
+//        public void setValue(String name) {
+//            value = name;
+//        }
     }
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUrl() {
