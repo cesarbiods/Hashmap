@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 run {
-    mainClassName = 'com.github.cesarbiods.Main'
+    mainClassName = 'com.github.cesarbiods.PokePanel'
 }
 
 sourceCompatibility = 1.8
