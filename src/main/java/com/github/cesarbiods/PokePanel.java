@@ -36,21 +36,14 @@ public class PokePanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(PokePanel.this,
-                        "Content of the text field:\n" + hashmap.get(t.getText()).getName());
+                        "Pokemon: \n" + hashmap.get(t.getText()).getName() + hashmap.get(t.getText()).getHeight()
+                + hashmap.get(t.getText()).getWeight() + hashmap.get(t.getText()).getTypes());
             }
-//            public void enteredText(ActionEvent event) {
-//                entry = t.getText();
-//            }
         });
         add(b);
         add(t);
         t.setToolTipText("Please enter a dex number between 1-9");
     }
-    public void show(Hashmap map, String key) {
-        JOptionPane.showMessageDialog(PokePanel.this, map.get(key).getName());
-    }
-
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(()-> new GUI());

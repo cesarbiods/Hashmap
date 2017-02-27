@@ -19,7 +19,6 @@ public class ComplexType {
 
     public int getSlot() {
         return slot;
-
     }
 
     public Type getType() {

@@ -22,8 +22,12 @@ public class Pokemon {
         return name;
     }
 
-    public List<ComplexType> getTypes() {
-        return types;
+    public String getTypes() {
+        String type = "";
+        for (ComplexType temp: types) {
+            type += temp.getType().toString();
+        }
+        return type;
     }
 
     public int getHeight() {
