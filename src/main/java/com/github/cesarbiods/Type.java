@@ -16,7 +16,8 @@ enum Name {
 }
 public class Type {
     private String url;
-    private Name name;
+    private String name;
+    public Name value;
 
     public void setUrl(String url) {
         this.url = url;
@@ -26,9 +27,17 @@ public class Type {
         return url;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String toString() {
         String temp = "";
-        switch (name) {
+        switch (value) {
             case NORMAL:
                 temp += "Normal/";
             case FIRE:

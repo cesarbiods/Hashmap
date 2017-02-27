@@ -13,8 +13,8 @@ public class GUI {
 
     private void initUI() {
         JFrame frame = new JFrame("Pokedex");
-        frame.setMinimumSize(new Dimension(800, 500));
-        frame.setPreferredSize(new Dimension(50, 40));
+        frame.setMinimumSize(new Dimension(240, 90));
+        frame.setPreferredSize(new Dimension(50, 60));
         frame.setLocationRelativeTo(null);
         frame.setContentPane(new PokePanel());
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);

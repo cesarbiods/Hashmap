@@ -25,9 +25,11 @@ public class Pokemon {
     public String getTypes() {
         String type = "";
         for (ComplexType temp: types) {
-            type += temp.getType().toString();
+            type += temp.getType().getName();
+            type += "/";
         }
-        return type;
+        String actual = type.substring(0, type.length() - 1);
+        return actual;
     }
 
     public int getHeight() {
@@ -52,5 +54,9 @@ public class Pokemon {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public String toString() {
+        return "Pokemon: \n" + "Name: " + name + "\n" + "Type: " + getTypes() + "\n" + "Height: " + height + "\n" + "Weight: " + weight;
     }
 }

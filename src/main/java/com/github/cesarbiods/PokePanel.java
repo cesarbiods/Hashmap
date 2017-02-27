@@ -13,8 +13,6 @@ import java.awt.event.ActionListener;
 public class PokePanel extends JPanel{
     private JButton b;
     private JTextField t;
-    private ActionListener a;
-    private String entry;
     public PokePanel() {
         Hashmap hashmap = new Hashmap();
         connectionReader cr = new connectionReader();
@@ -22,7 +20,7 @@ public class PokePanel extends JPanel{
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         System.out.println("Loading the pokedex...");
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 9; i++) {
             String purl = url.concat(Integer.toString(i));
             String output  = cr.getUrlContents(purl);
             Pokemon poke = gson.fromJson(output, Pokemon.class);
@@ -36,8 +34,7 @@ public class PokePanel extends JPanel{
             @Override
             public void actionPerformed(ActionEvent event) {
                 JOptionPane.showMessageDialog(PokePanel.this,
-                        "Pokemon: \n" + hashmap.get(t.getText()).getName() + hashmap.get(t.getText()).getHeight()
-                + hashmap.get(t.getText()).getWeight() + hashmap.get(t.getText()).getTypes());
+                        hashmap.get(t.getText()).toString());
             }
         });
         add(b);
