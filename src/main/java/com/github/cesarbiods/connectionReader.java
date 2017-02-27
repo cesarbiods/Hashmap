@@ -12,6 +12,17 @@ import com.google.gson.JsonParser;
 
 public class connectionReader {
 
+    /**
+     * Queries a URL and returns it's contents as a JSON String
+     * <p>
+     * The method creates a URLConnection and a BufferedReader
+     * object to query the URL from the user and returns the JSON
+     * String for the user to parse.
+     *
+     * @param  theUrl  a String of the URL the user wishes to query
+     * @return      a JSON in String form from the URL
+     */
+
     public static String getUrlContents(String theUrl) {
         StringBuilder content = new StringBuilder();
 

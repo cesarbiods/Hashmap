@@ -5,6 +5,13 @@ import java.util.List;
 /**
  * Created by cesar on 2/8/17.
  */
+
+/**
+ * This class describes a Pokemon object to be created from the Pokeapi
+ * nd loaded on the Hashmap by dex numbers. Every Pokemon has a name,
+ * height, weight, and a single or a dual type.
+ */
+
 public class Pokemon {
     private String name;
     public List<ComplexType> types;

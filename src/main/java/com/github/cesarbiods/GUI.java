@@ -11,6 +11,12 @@ public class GUI {
         initUI();
     }
 
+    /**
+     * Initiates the GUI
+     * <p>
+     * Initiates the GUI dimensions and default behavior.
+     */
+
     private void initUI() {
         JFrame frame = new JFrame("Pokedex");
         frame.setMinimumSize(new Dimension(240, 90));

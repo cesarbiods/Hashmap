@@ -42,6 +42,11 @@ public class PokePanel extends JPanel{
         t.setToolTipText("Please enter a dex number between 1-9");
     }
 
+    /**
+     * Initiates the GUI on a separate thread
+     * All the logic of the program is found in the PokePanel class
+     */
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(()-> new GUI());
     }
