@@ -5,19 +5,10 @@ import java.text.Normalizer;
 /**
  * Created by cesar on 2/22/17.
  */
-enum Name {
-    NORMAL, FIRE, ROCK, GROUND, GRASS, BUG, POISON, FIGHTING,
-    DRAGON, DARK, GHOST, STEEL, ELECTRIC, FAIRY, PSYCHIC,
-    FLYING, ICE, WATER
-//        private int value;
-//        public int getValue() {
-//            return value;
-//        }
-}
+
 public class Type {
     private String url;
     private String name;
-    public Name value;
 
     public void setUrl(String url) {
         this.url = url;
@@ -35,47 +26,45 @@ public class Type {
         this.name = name;
     }
 
-    public String toString() {
-        String temp = "";
-        switch (value) {
-            case NORMAL:
-                temp += "Normal/";
-            case FIRE:
-                temp += "Fire/";
-            case ROCK:
-                temp += "Rock/";
-            case GROUND:
-                temp += "Ground/";
-            case GRASS:
-                temp += "Grass/";
-            case BUG:
-                temp += "Bug/";
-            case POISON:
-                temp += "Poison/";
-            case FIGHTING:
-                temp += "Fighting/";
-            case DRAGON:
-                temp += "Dragon/";
-            case DARK:
-                temp += "Dark/";
-            case GHOST:
-                temp += "Ghost/";
-            case STEEL:
-                temp += "Steel/";
-            case ELECTRIC:
-                temp += "Electric/";
-            case FAIRY:
-                temp += "Fairy/";
-            case PSYCHIC:
-                temp += "Psychic/";
-            case FLYING:
-                temp += "Flying/";
-            case ICE:
-                temp += "Ice/";
-            case WATER:
-                temp += "Water/";
-            break;
+    public int value() {
+        switch (name) {
+            case "normal":
+                return 1;
+            case "fire":
+                return 2;
+            case "rock":
+                return 3;
+            case "ground":
+                return 4;
+            case "grass":
+                return 5;
+            case "bug":
+                return 6;
+            case "poison":
+                return 7;
+            case "fighting":
+                return 8;
+            case "dragon":
+                return 9;
+            case "dark":
+                return 10;
+            case "ghost":
+                return 11;
+            case "steel":
+                return 12;
+            case "electric":
+                return 13;
+            case "fairy":
+                return 14;
+            case "psychic":
+                return 15;
+            case "flying":
+                return 16;
+            case "ice":
+                return 17;
+            case "water":
+                return 18;
+            default: return 0;
         }
-        return temp;
     }
 }

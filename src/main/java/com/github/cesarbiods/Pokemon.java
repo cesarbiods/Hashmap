@@ -39,6 +39,14 @@ public class Pokemon {
         return actual;
     }
 
+    public int getValue() {
+        int value = 0;
+        for (ComplexType temp: types) {
+            value += temp.getType().value();
+        }
+        return value;
+    }
+
     public int getHeight() {
         return height;
     }
@@ -65,5 +73,16 @@ public class Pokemon {
 
     public String toString() {
         return "Pokemon: \n" + "Name: " + name + "\n" + "Type: " + getTypes() + "\n" + "Height: " + height + "\n" + "Weight: " + weight;
+    }
+
+    public int compare(Pokemon b) {
+        int wRatio = 1;
+        int hRatio = 100;
+        int tRatio = 10;
+        int result = 0;
+        result += ((this.getHeight() - b.getHeight()) * hRatio);
+        result += ((this.getWeight() - b.getWeight()) * wRatio);
+        result += ((this.getValue() - b.getValue()) * tRatio);
+        return Math.abs(result);
     }
 }
