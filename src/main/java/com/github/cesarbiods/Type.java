@@ -6,6 +6,13 @@ import java.text.Normalizer;
  * Created by cesar on 2/22/17.
  */
 
+/**
+ * This class was made solely to parse the JSON from Pokeapi and retrieve
+ * the Pokemon's type correctly. The important variable is the
+ * String name, it is the pokemon's type that will be displayed to the user
+ * as well as used to calculate similarity
+ */
+
 public class Type {
     private String url;
     private String name;
@@ -25,6 +32,15 @@ public class Type {
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * Assigns a numerical value to each pokemon type
+     * <p>
+     * Used for comparing types in the similarity metric and
+     * determining which types are more alike
+     *
+     * @return      an int for the numerical representation of a type
+     */
 
     public int value() {
         switch (name) {

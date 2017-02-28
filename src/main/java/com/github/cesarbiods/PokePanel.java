@@ -15,6 +15,16 @@ import java.util.List;
 public class PokePanel extends JPanel{
     private JButton b;
     private JTextField t;
+
+    /**
+     * Creates and populates the hashmap from the URL
+     * <p>
+     * The following lines up until the sout 'Success' create a Hashmap object,
+     * a connection reader, and populate the Hashmap with Pokemon
+     * objects being created from the URL JSON. The number cap determines
+     * how many Pokemon are loaded onto the Hashmap.
+     */
+
     public PokePanel() {
         Hashmap hashmap = new Hashmap();
         connectionReader cr = new connectionReader();
@@ -30,6 +40,17 @@ public class PokePanel extends JPanel{
             hashmap.add(Integer.toString(i), poke);
         }
         System.out.println("Success!");
+
+        /**
+         * Gets the user input and displays the given Pokemon and a similar one
+         * <p>
+         * This portion of the code listens for the user to press the search button.
+         * Once they do, it looks at every other Pokemon in the Hashmap and
+         * calculates the similarity value. When it finds the smallest number, it denotes that
+         * as the most similar Pokemon. Then the program displays the Pokemon's  information
+         * mapped to the key that the user provided as well as the most similar Pokemon's
+         * information
+         */
 
         b = new JButton("Search");
         t = new JTextField(10);
