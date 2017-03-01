@@ -32,8 +32,15 @@ public class PokePanel extends JPanel{
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         System.out.println("Loading the pokedex...");
 
-        int cap = 15;
-        for (int i = 1; i <= cap; i++) {
+        /**
+         * Var dexMax
+         * <p>
+         * This variable determines how many Pokemon are loaded onto
+         * the Hashmap at the start.
+         */
+
+        int dexMax = 50;
+        for (int i = 1; i <= dexMax; i++) {
             String purl = url.concat(Integer.toString(i));
             String output  = cr.getUrlContents(purl);
             Pokemon poke = gson.fromJson(output, Pokemon.class);
@@ -59,7 +66,7 @@ public class PokePanel extends JPanel{
             public void actionPerformed(ActionEvent event) {
                 int min = Integer.MAX_VALUE;
                 int minIndex = 0;
-                for (int i = 1; i <= cap; i++) {
+                for (int i = 1; i <= dexMax; i++) {
                     if (hashmap.contains(Integer.toString(i))) {
                         if (!Integer.toString(i).equals(t.getText())) {
                             int diff = hashmap.get(t.getText()).compare(hashmap.get(Integer.toString(i)));

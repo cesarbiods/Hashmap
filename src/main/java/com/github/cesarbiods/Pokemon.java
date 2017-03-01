@@ -111,9 +111,9 @@ public class Pokemon {
         int hRatio = 100;
         int tRatio = 10;
         int result = 0;
-        result += ((this.getHeight() - b.getHeight()) * hRatio);
-        result += ((this.getWeight() - b.getWeight()) * wRatio);
-        result += ((this.getValue() - b.getValue()) * tRatio);
+        result += Math.abs((this.getHeight() - b.getHeight()) * hRatio);
+        result += Math.abs((this.getWeight() - b.getWeight()) * wRatio);
+        result += Math.abs((this.getValue() - b.getValue()) * tRatio);
         return Math.abs(result);
     }
 }
